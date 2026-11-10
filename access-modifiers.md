@@ -1,15 +1,50 @@
-# public
+Access Modifiers in TypeScript
 
-public help to access class elements from globally
+Access modifiers control the visibility and accessibility of class properties and methods.
 
-# private
+1. Public
+   Accessible from anywhere.
+   Default access modifier in TypeScript.
+   ts
+   class User {
+   public name = "John";
+   }
 
-private class elements can't be assess from any other places without the scope of the own class
+2. Private
+   Accessible only within its own class.
+   Cannot be accessed outside the class or by child classes.
+   ts
+   class User {
+   private password = "12345";
+   }
 
-# protected
+3. Protected
+   Accessible within its own class and its child classes (extends).
+   Cannot be accessed directly from outside the class.
+   ts
+   class User {
+   protected role = "user";
+   }
 
-Protected class elements can be assess from own class and the classes which are child class ( extend the parent class )
+class Admin extends User {
+getRole() {
+return this.role;
+}
+}
 
-# readonly
+4. Readonly
+   Value can only be assigned during declaration or inside the constructor.
+   Cannot be reassigned afterward.
+   ts
+   class User {
+   readonly id = 101;
+   }
 
-Can't change the value
+Summary
+Modifier Accessibility
+public Anywhere
+private Own class only
+protected Own class + child classes
+readonly Cannot be reassigned after initialization
+
+Note: readonly is a property modifier, not an access modifier.
